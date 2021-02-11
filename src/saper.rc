@@ -1,0 +1,135 @@
+2001 ICON 32.ico
+2002 ICON 16.ico 
+
+3001 BITMAP 1.bmp
+3002 BITMAP 2.bmp
+3003 BITMAP 3.bmp
+
+4001 RCDATA f01.jpg
+4002 RCDATA f02.jpg
+4003 RCDATA f03.jpg
+4004 RCDATA f04.jpg
+4005 RCDATA f05.jpg
+4006 RCDATA f06.jpg
+4007 RCDATA f07.jpg
+4008 RCDATA f08.jpg
+4009 RCDATA f09.jpg
+4010 RCDATA f10.jpg
+
+5001 BITMAP logo2.bmp
+
+6001 BITMAP top10.bmp
+7001 BITMAP toptime.bmp
+
+#define IDM_START    101 
+ #define IDM_BEST     201
+ #define IDM_BESTTIME 202
+#define IDM_EXIT     103
+
+#define IDM_ABOUT    112
+
+#define IDM_PAUSE    121
+IDM_MENU MENU { 
+ POPUP "Игра" { 
+  MENUITEM "Новая игра",IDM_START 
+  POPUP "Победители"{
+		MENUITEM "Best of the best",IDM_BEST 
+		MENUITEM "Лучшее время уровня",IDM_BESTTIME
+		     } 
+  MENUITEM SEPARATOR 
+  MENUITEM "Выход",IDM_EXIT 
+ }
+ MENUITEM "Пауза",IDM_PAUSE
+ MENUITEM "О программе",IDM_ABOUT,HELP
+} 
+
+ABOUT DIALOG 70,10,182,146
+ STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP
+ CAPTION "О программе"
+ FONT 8, "MS Sans Serif"
+ {
+ GROUPBOX	"",-1,4,34,175,109,0
+ CONTROL	5001,1003,"Static",SS_BITMAP | SS_NOTIFY | SS_REALSIZEIMAGE | SS_SUNKEN,4,3,175,32
+ ICON 2001,1002,9,43,32,32
+ LTEXT "Новый Сапёр v1.1\n\n"
+      "\n"
+      "RM-Soft c2003\n"
+      "http://rm-soft.h10.ru\n\n"
+      "Программист: ReMaker\n"
+      "(Школдин А. Ю. г. Славгород)",
+       1002, 49, 43, 126, 71, SS_LEFT
+ CONTROL	"",-1,"Static",SS_ETCHEDHORZ,49,113,125,1
+ DEFPUSHBUTTON   "OK",IDOK,117,121,57,15
+ }
+
+TOP10 DIALOG 80,10,160,153
+ STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP
+ CAPTION "Лучшии из лучших."
+ FONT 8, "MS Sans Serif"
+ {
+ GROUPBOX	"",-1,4,24,152,95,0
+ CONTROL	6001,-1,"Static",SS_BITMAP | SS_NOTIFY | SS_REALSIZEIMAGE ,2,3,213,32
+
+LTEXT "1.\n2.\n3.\n4.\n5.\n6.\n7.\n8.\n9.\n10.",1005,9,33,10,83,SS_LEFT
+
+ DEFPUSHBUTTON   "OK",IDOK,99,130,57,15
+ }
+
+TOPTIME DIALOG 80,10,160,153
+ STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP
+ CAPTION "Лучшее время уровня."
+ FONT 8, "MS Sans Serif"
+ {
+ GROUPBOX	"",-1,4,24,152,95,0
+ CONTROL	7001,-1,"Static",SS_BITMAP | SS_NOTIFY | SS_REALSIZEIMAGE ,32,3,140,33
+
+LTEXT "0.\n1.\n2.\n3.\n4.\n5.\n6.\n7.\n8.\n9.",1005,9,33,10,83,SS_LEFT
+
+ DEFPUSHBUTTON   "OK",IDOK,99,130,57,15
+ }
+
+INPUTNAME DIALOG 50,30,241,26
+ STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP
+ CAPTION "Новый рекорд уровня."
+ FONT 8, "MS Sans Serif"
+ {
+ GROUPBOX	"",-1,4,-2,234,26,0
+ LTEXT           "Ваше имя:",-1,8,9,41,8
+ EDITTEXT        1001,51,7,108,13,WS_TABSTOP | ES_AUTOHSCROLL
+ DEFPUSHBUTTON   "OK",IDOK,171,6,57,15
+ }
+
+INPUTNAME2 DIALOG 50,30,241,72
+ STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP
+ CAPTION "Новый рекорд."
+ FONT 8, "MS Sans Serif"
+ {
+ GROUPBOX	"",-1,4,1,234,59,0
+ LTEXT           "Вы заняли",-1,9,17,41,8
+ LTEXT           "место.",-1,64,17,41,8
+ LTEXT           "Ваше имя:",-1,9,39,41,8
+ EDITTEXT        1001,52,37,108,13,ES_AUTOHSCROLL
+ DEFPUSHBUTTON   "OK",IDOK,174,36,57,15
+ }
+
+VERSIONINFO_1 VERSIONINFO FILEVERSION 1 PRODUCTVERSION 1 FILEOS 4 FILETYPE VFT_APP
+BEGIN
+BLOCK "StringFileInfo" 
+BEGIN 
+    BLOCK "041904E3"
+    BEGIN
+        VALUE "CompanyName","RM-Soft"
+        VALUE "FileDescription","Logic game sapper"
+        VALUE "FileVersion","1.1"
+        VALUE "InternalName","SAPER"
+        VALUE "LegalCopyright","Copyright © RM-Soft 2001-2003"
+        VALUE "OriginalFilename","SAPER.EXE"
+        VALUE "ProductName","Spper"
+        VALUE "ProductVersion","1.1"
+    END 
+END
+BLOCK "VarFileInfo" 
+BEGIN 
+    VALUE "Translation",0x0419,0x04E3
+END  
+END
